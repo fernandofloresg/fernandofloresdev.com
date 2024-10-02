@@ -1,19 +1,29 @@
 <script>
+import axios from 'axios'
+
 export default {
 	data() {
 		return {
-			title: "",
-			content: "",
+			blog_list: [],
 		}
-	}
+	},
+	mounted() {
+		var res;
+		axios
+			.get('http://127.0.0.1:8000/blogs/')
+			.then((response) => {
+				console.log(response)
+				this.blog_list = response.data
+			})
+	},
 }
 </script>
 
 <template>
-  <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
+  <div class="greetings" v-for="blog in blog_list">
+    <h1 class="green">{{ blog.title }}</h1>
     <h3>
-			{{ content }}
+			{{ blog.content }}
     </h3>
   </div>
 </template>
