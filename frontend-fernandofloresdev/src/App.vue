@@ -4,14 +4,22 @@ import Navigation from './components/Navigation.vue';
 </script>
 
 <template>
-	<div class="col-2 sidenav">
+	<div class="nav">
 		<Navigation/>
 	</div>
-	<div class="col-8">
+	<div class="router">
 		<RouterView />
 	</div>
 </template>
 
 <style scoped>
+
+.nav {
+  width: 20vw;
+}
+
+.router {
+  width: 80vw;
+}
 
 </style>
